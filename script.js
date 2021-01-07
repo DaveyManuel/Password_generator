@@ -1,32 +1,22 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-
+var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var lowercase = "abcdefghijklmnopqrstuvwxyz"
+var numbers = "0123456789"
+var specialCharacters = "!@#$%^&*()_"
+/*
 var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 var lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 var numbers = ["1","2","3","4","5","6","7","8","9","0"]
 var specialCharacters = ["!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","}","[","]",",",".","<",">","/","?",";",":","'"]
+*/
 
 // create empty array for potential characters
-var potentialPassword = []
-var randomCharUpper = []
-var randomCharLower = []
-var randomCharNumber = []
-var randomCharSpecial = []
-
-//Maybe use charAt() method to find random character in an index instead of individualizing each letter in array? example: it would find random character in this string [abcdefghijklmnop]
-
-
-// Example of how to use Math random to get random char in array
-
-console.log(specialCharacters[Math.floor(Math.random()*specialCharacters.length)]);
-
-console.log(lowercase[Math.floor(Math.random()*lowercase.length)]);
-
-console.log(uppercase[Math.floor(Math.random()*uppercase.length)]);
-
-console.log(numbers[Math.floor(Math.random()*numbers.length)]);
-
+//var randomCharUpper = 0
+//var randomCharLower = 0
+//var randomCharNumber = 0
+//var randomCharSpecial = 0
 
 // create function for math random
 
@@ -46,31 +36,13 @@ function generatePassword(){
     var characterLength = prompt("How many characters would you like in your password? (Choose between 8 and 128)");
     var characterLengthNumber = parseInt(characterLength);
 
+    var charactersAllowed = ''
+    var potentialPassword = ''
+
+
 
 
    // potentialPassword.push(randomIndexArray(uppercase));
-   
-
-  
-  /*Create for-loop based on number of characters from prompt? Then include upperacse,lowercase,numbers, and specialchars in loop using + ?
-*/
-
-        for (var i = 0; i < characterLengthNumber; i++) {
-
-          
-      
-           // (somehow get the random output of these to add to password)
-            
-           // uppercase + lowercase + numbers + specialCharacters
-
-          //  (Loop i times depending on how many chars user wants in PW)
-
-
-            //potentialPassword = characterLengthNumber(uppercaseConf + lowercaseConf + numbersConf + specialCharactersConf)
-
-
-
-                  }
 
   
     var uppercaseConf = confirm("Would you like to add any uppercase?");
@@ -78,23 +50,29 @@ function generatePassword(){
 
       if (uppercaseConf){
   
+
+        charactersAllowed += uppercase
         //If yes add to password
-        randomCharUpper = [uppercase[Math.floor(Math.random()*uppercase.length)]];
-        //potentialPassword.push(uppercaseConf);
+        //randomCharUpper = [uppercase[Math.floor(Math.random()*uppercase.length)]];
+        //potentialPassword.push(randomCharUpper);
   
   
   
       } else {
   
         // do not add uppercase to PW
+       
   
       }
   
     var lowercaseConf = confirm("Would you like to add any lowercase?");
       if (lowercaseConf){
+
+        charactersAllowed += lowercase
+
   
        //If yes add to password
-       randomCharLower = [lowercase[Math.floor(Math.random()*lowercase.length)]];
+       //randomCharLower = [lowercase[Math.floor(Math.random()*lowercase.length)]];
   
       } else {
   
@@ -104,9 +82,12 @@ function generatePassword(){
   
     var numbersConf = confirm("Would you like to add any numbers?");
       if (numbersConf){
+
+        charactersAllowed += numbers
+
   
         //If yes add to password
-        randomCharNumber = [numbers[Math.floor(Math.random()*numbers.length)]];
+        //randomCharNumber = [numbers[Math.floor(Math.random()*numbers.length)]];
   
       } else {
   
@@ -117,9 +98,12 @@ function generatePassword(){
   
     var specialCharactersConf = confirm("Would you like to add any special characters?");
       if (specialCharactersConf){
+
+        charactersAllowed += specialCharacters
+
   
          //If yes add to password
-         randomCharSpecial = [specialCharacters[Math.floor(Math.random()*specialCharacters.length)]];
+         //randomCharSpecial = [specialCharacters[Math.floor(Math.random()*specialCharacters.length)]];
   
       } else {
   
@@ -128,15 +112,42 @@ function generatePassword(){
   
       }
 
-      potentialPassword = randomCharUpper.concat(randomCharLower, randomCharNumber, randomCharSpecial);
+      console.log(charactersAllowed)
 
-      console.log(randomCharUpper);
-      console.log(randomCharLower);
-      console.log(randomCharNumber);
-      console.log(randomCharSpecial);
+      //potentialPassword = randomCharUpper.concat(randomCharLower, randomCharNumber, randomCharSpecial);
 
-      console.log(potentialPassword);
-      
+     // console.log(randomCharUpper);
+      //console.log(randomCharLower);
+      //console.log(randomCharNumber);
+      //console.log(randomCharSpecial);
+
+      //console.log(potentialPassword);
+
+      //get characters out of array and into password somehow
+
+
+        /*Create for-loop based on number of characters from prompt? Then include upperacse,lowercase,numbers, and specialchars in loop using + ?
+*/
+
+for (var i = 0; i < characterLengthNumber; i++) {
+
+  var randomNumberSelector = Math.floor(Math.random()*charactersAllowed.length);
+
+  potentialPassword += charactersAllowed[randomNumberSelector];
+      //potentialPassword=randomCharUpper + randomCharLower + randomCharNumber + randomCharSpecial
+
+  // (somehow get the random output of these to add to password)
+
+ //  (Loop i times depending on how many chars user wants in PW)
+
+
+         }
+
+
+      console.log(randomNumberSelector)
+      console.log(potentialPassword)
+
+      potentialPassword = document.querySelector("#password");
                 }
 
 
@@ -156,7 +167,6 @@ passwordText.value = password;
 
 
 }
-
 
 
 // Add event listener to generate button
