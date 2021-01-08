@@ -31,6 +31,7 @@ var specialCharacters = ["!","@","#","$","%","^","&","*","(",")","_","-","+","="
 */
 
 
+
 function generatePassword(){
 
     var characterLength = prompt("How many characters would you like in your password? (Choose between 8 and 128)");
@@ -40,7 +41,7 @@ function generatePassword(){
     var potentialPassword = ''
 
 
-
+// ADD ELSE FOR IF USER SETS <8 or >128
 
    // potentialPassword.push(randomIndexArray(uppercase));
 
@@ -57,7 +58,7 @@ function generatePassword(){
         //potentialPassword.push(randomCharUpper);
   
   
-  
+  // don't need else statements
       } else {
   
         // do not add uppercase to PW
@@ -147,7 +148,8 @@ for (var i = 0; i < characterLengthNumber; i++) {
       console.log(randomNumberSelector)
       console.log(potentialPassword)
 
-      potentialPassword = document.querySelector("#password");
+      return potentialPassword;
+
                 }
 
 
