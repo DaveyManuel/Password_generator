@@ -4,7 +4,8 @@ var generateBtn = document.querySelector("#generate");
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var lowercase = "abcdefghijklmnopqrstuvwxyz"
 var numbers = "0123456789"
-var specialCharacters = "!@#$%^&*()_"
+var specialCharacters = "!@#$%^&*()_-[]{}+=,./<>?;'`~"
+
 /*
 var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 var lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
@@ -34,8 +35,23 @@ var specialCharacters = ["!","@","#","$","%","^","&","*","(",")","_","-","+","="
 
 function generatePassword(){
 
-    var characterLength = prompt("How many characters would you like in your password? (Choose between 8 and 128)");
+
+  var characterLength = prompt("How many characters would you like in your password? (Choose between 8 and 128)");
+  //var characterLengthNumber = parseInt(characterLength);
+
+
+  if (characterLength < 8 || characterLength > 128) {
+
+    alert("PASSWORD MUST BE BETWEEN 8 AND 128. PLEASE CLICK BUTTON AGAIN.")
+    return;
+
+
+  } else {
+
     var characterLengthNumber = parseInt(characterLength);
+
+  }
+
 
     var charactersAllowed = ''
     var potentialPassword = ''
