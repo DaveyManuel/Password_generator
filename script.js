@@ -6,7 +6,7 @@ var lowercase = "abcdefghijklmnopqrstuvwxyz"
 var numbers = "0123456789"
 var specialCharacters = "!@#$%^&*()_-[]{}+=,./<>?;'`~"
 
-
+// Function to generate password 
 function generatePassword(){
 
 
@@ -18,12 +18,10 @@ function generatePassword(){
   var numbersConf = confirm("Would you like to add any numbers?");
   var specialCharactersConf = confirm("Would you like to add any special characters?");
 
-
-
-
+// Criteria used based on user input
   if (characterLength < 8 || characterLength > 128) {
 
-    alert("Password must be between 8 and 128 characters. Please click button again.")
+    alert("Password must be between 8 and 128 characters. Please click button again.");
     return;
 
 
@@ -36,25 +34,25 @@ function generatePassword(){
   if (uppercaseConf){
   
 
-        charactersAllowed += uppercase
+        charactersAllowed += uppercase;
 
       } 
   
   if (lowercaseConf){
 
-        charactersAllowed += lowercase
+        charactersAllowed += lowercase;
 
       } 
   
   if (numbersConf){
 
-        charactersAllowed += numbers
+        charactersAllowed += numbers;
   
       } 
   
   if (specialCharactersConf){
 
-        charactersAllowed += specialCharacters
+        charactersAllowed += specialCharacters;
   
       } 
 
@@ -65,8 +63,8 @@ function generatePassword(){
 
   }
 
-      console.log(charactersAllowed)
 
+// For-loop randomizing each character of the password based on characterLengthNumber
 for (var i = 0; i < characterLengthNumber; i++) {
 
   var randomNumberSelector = Math.floor(Math.random()*charactersAllowed.length);
@@ -75,16 +73,9 @@ for (var i = 0; i < characterLengthNumber; i++) {
 
          }
 
+ return potentialPassword;
 
-      console.log(randomNumberSelector)
-      console.log(potentialPassword)
-
-      return potentialPassword;
-
-                }
-
-
-
+}
 
 // Write password to the #password input
 function writePassword() {
@@ -98,7 +89,6 @@ passwordText.value = password;
 
 
 }
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
